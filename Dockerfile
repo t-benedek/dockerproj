@@ -11,10 +11,10 @@ COPY . app.py /app/
 RUN pip install --upgrade pip &&\
     pip install --trusted-host pypi.python.org -r requirements.txt
 
-# Expose port 5000 for flask example
-# EXPOSE 5000
-
-# Run app.py at container launch
+# Run app.py at container launch 
+# does not work because of wrong port being used
 # CMD ["flask", "run"]
+CMD ["python", "app.py"]
 
-ENTRYPOINT python app.py
+# you can also use this instead of the CMD instruction
+# ENTRYPOINT python app.py
